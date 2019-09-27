@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OMSCS Course Recommendation System</title>
+
+    <style>
+        button {
+            background-color: lightblue;
+            border: none;
+            color: white;
+            padding: 12px 28px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+        .button{
+            background-color: lightgrey;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            padding: 14px 40px;
+            border-radius: 12px;
+        }
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #5052b5;
+
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/css/bootstrap-select.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.8.1/js/bootstrap-select.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('select').selectpicker();
+        });
+        $(function() {
+            $("form[id='course_form']").submit(function() {
+                $.ajax({
+                    url: "/newpage",
+                    data: $("form[id='course_form']").getData("").serialize(),
+                    type: 'GET',
+                    success: function(response) {
+                        console.log(response);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            });
+        });
+
+        $(document).ready(function() {
+            var id=0;
+
+            $('button[value="UserBasedCF"]').hide();
+            $('button[value="ItemBasedCF"]').show();
+            $('button[value="ContentBased"]').hide();
+
+            $("button[name='addcourse']").click(function() {
+                id = id+1;
+                var domElement = $('<div name="course-div" align="center">\n<br/>' +
+                    '            <select name="course' + id + '" class="selectpicker" data-live-search="true" searchable="Search here..">\n' +
+                    '                <option value="None">Select Course Name</option>\n' +
+                    '                <option value="CS-6035">CS-6035: Intro to Information Security</option>\n' +
+                    '                <option value="CS-6200">CS-6200: Intro to Operating Systems</option>\n' +
+                    '                <option value="CS-6210">CS-6210: Advanced Operating Systems</option>\n' +
+                    '                <option value="CS-6250">CS-6250: Computer Networks</option>\n' +
+                    '                <option value="CS-6262">CS-6262: Network Security</option>\n' +
+                    '                <option value="CS-6263">CS-6263: Cyber-Physical Systems</option>\n' +
+                    '                <option value="CS-6290">CS-6290: High Performance Computer Architecture</option>\n' +
+                    '                <option value="CS-6291">CS-6291: Embedded System Optimization</option>\n' +
+                    '                <option value="CS-6300">CS-6300: Software Development Process</option>\n' +
+                    '                <option value="CS-6310">CS-6310: Software Architecture & Design</option>\n' +
+                    '                <option value="CS-6340">CS-6340: Software Analysis & Test</option>\n' +
+                    '                <option value="CS-6400">CS-6400: Database Systems Concepts & Design</option>\n' +
+                    '                <option value="CS-6440">CS-6440: Intro to Health Informatics</option>\n' +
+                    '                <option value="CS-6460">CS-6460: Educational Technology</option>\n' +
+                    '                <option value="CS-6475">CS-6475: Computational Photography</option>\n' +
+                    '                <option value="CS-6476">CS-6476: Computer Vision</option>\n' +
+                    '                <option value="CS-6505">CS-6505: Computability, Complexity & Algorithms</option>\n' +
+                    '                <option value="CS-6601">CS-6601: Artificial Intelligence</option>\n' +
+                    '                <option value="CS-6750">CS-6750: Human-Computer Interaction</option>\n' +
+                    '                <option value="CS-7637">CS-7637: Knowledge-Based AI: Cognitive Systems</option>\n' +
+                    '                <option value="CS-7641">CS-7641: Machine Learning</option>\n' +
+                    '                <option value="CS-7642">CS-7642: Reinforcement Learning</option>\n' +
+                    '                <option value="CS-7646">CS-7646: Machine Learning for Trading</option>\n' +
+                    '                <option value="CS-8803-001">CS-8803-001: AI for Robotics</option>\n' +
+                    '                <option value="CS-8803-004">CS-8803-004: Embedded Software</option>\n' +
+                    '                <option value="CS-8803-008">CS-8803-008: Compilers</option>\n' +
+                    '                <option value="CS-8803-009">CS-8803-009: Cyber-Physical Design & Analytics (pre-Spring 2019)</option>\n' +
+                    '                <option value="CS-8803-GA">CS-8803-GA: Graduate Algorithms (pre-Spring 2019)</option>\n' +
+                    '                <option value="CSE-6040">CSE-6040: Computing for Data Analytics</option>\n' +
+                    '                <option value="CSE-6220">CSE-6220: Intro to High-Performance Computing</option>\n' +
+                    '                <option value="CSE-6242">CSE-6242: Data & Visual Analytics</option>\n' +
+                    '                <option value="CSE-6250">CSE-6250: Big Data for Health Informatics</option>\n' +
+                    '                <option value="ISYE-6402">ISYE-6402: Time Series Analysis</option>\n' +
+                    '                <option value="ISYE-6414">ISYE-6414: Regression Analysis</option>\n' +
+                    '                <option value="ISYE-6501">ISYE-6501: Introduction to Analytics Modeling</option>\n' +
+                    '                <option value="ISYE-6644">ISYE-6644: Simulation</option>\n' +
+                    '                <option value="ISYE-6669">ISYE-6669: Deterministic Optimization</option>\n' +
+                    '                <option value="MGT-6754">MGT-6203: Data Analytics in Business</option>\n' +
+                    '                <option value="MGT-6754">MGT-6754: Business Fundamentals for Analytics</option>\n' +
+                    '            </select>\n' +
+                    '            <select name="difficulty' + id + '" class="selectpicker">\n' +
+                    '                <option value="None">How difficult it was?</option>\n' +
+                    '                <option value="Very Hard">Very Hard</option>\n' +
+                    '                <option value="Hard">Hard</option>\n' +
+                    '                <option value="Medium">Medium</option>\n' +
+                    '                <option value="Easy">Easy</option>\n' +
+                    '                <option value="Very Easy">Very Easy</option>\n' +
+                    '            </select>\n' +
+                    '            <select name="like' + id + '" class="selectpicker">\n' +
+                    '                <option value="None">How much did you like this course?</option>\n' +
+                    '                <option value="Strongly Disliked">Strongly Disliked</option>\n' +
+                    '                <option value="Disliked">Disliked</option>\n' +
+                    '                <option value="Neutral">Neutral</option>\n' +
+                    '                <option value="Liked">Liked</option>\n' +
+                    '                <option value="Loved!">Loved</option>\n' +
+                    '            </select>\n' +
+                    '            <select name="workload' + id + '" class="selectpicker">\n' +
+                    '                <option value="None">How was workload?</option>\n' +
+                    '                <option value="very heavy">very heavy</option>\n' +
+                    '                <option value="heavy">heavy</option>\n' +
+                    '                <option value="moderate">moderate</option>\n' +
+                    '                <option value="light">light</option>\n' +
+                    '                <option value="very light">very light</option>\n' +
+                    '            </select>\n' +
+                    '            <select name="sentiment' + id + '" class="selectpicker">\n' +
+                    '                <option value="None">How do you feel about it?</option>\n' +
+                    '                <option value="Very negative">Very negative</option>\n' +
+                    '                <option value="Negative">Negative</option>\n' +
+                    '                <option value="Neutral">Neutral</option>\n' +
+                    '                <option value="Positive">Positive</option>\n' +
+                    '                <option value="Very positive">Very positive</option>\n' +
+                    '            </select>\n<br/>' +
+                    '        </div>'
+                );
+                $('#container').append(domElement);
+                if ( $("div#container > div").length > 0 ) {
+                    $('button[value="UserBasedCF"]').show();
+                    $('button[value="ContentBased"]').show();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<h2 align="center">Courses taken this semester</h2>
+<div align="center">
+    <button class="button" name="addcourse">Add Courses</button>
+</div>
+
+<form id="course_form" method="post">
+    <div id="container" class="selectpicker">
+    </div>
+    <br/><br/>
+    <div align="center">
+    <button type="submit" name="action" value="ItemBasedCF" formaction="/newpage">Item Based CF</button>
+    <button type="submit" name="action" value="UserBasedCF" formaction="/newpage">User Based CF</button>
+    <button type="submit" name="action" value="ContentBased" formaction="/newpage">Content Based CF</button>
+        <button type="submit" name="action" value="PopularCourse" formaction="/newpage">Recommend Popular Courses</button>
+    <br>
+    </div>
+</form>
+<div align="center">
+
+</div>
+</body>
+</html>
+

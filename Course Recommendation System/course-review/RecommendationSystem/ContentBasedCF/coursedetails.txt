@@ -1,0 +1,39 @@
+CS-6035: Intro to Information Security
+CS-6200: Intro to Operating Systems
+CS-6210: Advanced Operating Systems
+CS-6250: Computer Networks
+CS-6262: Network Security
+CS-6263: Cyber-Physical Systems
+CS-6290: High Performance Computer Architecture
+CS-6291: Embedded System Optimization
+CS-6300: Software Development Process
+CS-6310: Software Architecture & Design
+CS-6340: Software Analysis & Test
+CS-6400: Database Systems Concepts & Design
+CS-6440: Intro to Health Informatics
+CS-6460: Educational Technology
+CS-6475: Computational Photography
+CS-6476: Computer Vision
+CS-6505: Computability, Complexity & Algorithms
+CS-6601: Artificial Intelligence
+CS-6750: Human-Computer Interaction
+CS-7637: Knowledge-Based AI: Cognitive Systems
+CS-7641: Machine Learning
+CS-7642: Reinforcement Learning
+CS-7646: Machine Learning for Trading
+CS-8803-001: AI for Robotics
+CS-8803-004: Embedded Software
+CS-8803-008: Compilers
+CS-8803-009: Cyber-Physical Design & Analytics (pre-Spring 2019)
+CS-8803-GA: Graduate Algorithms (pre-Spring 2019)
+CSE-6040: Computing for Data Analytics
+CSE-6220: Intro to High-Performance Computing
+CSE-6242: Data & Visual Analytics
+CSE-6250: Big Data for Health Informatics
+ISYE-6402: Time Series Analysis
+ISYE-6414: Regression Analysis
+ISYE-6501: Introduction to Analytics Modeling
+ISYE-6644: Simulation
+ISYE-6669: Deterministic Optimization
+MGT-6203: Data Analytics in Business
+MGT-6754: Business Fundamentals for Analytics
